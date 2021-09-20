@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Group?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+
+<HBox fx:id="fftHBox" prefHeight="450.0" prefWidth="1141.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.TfftViewController">
+   <children>
+      <Pane fx:id="fftPane" layoutX="300.0" layoutY="300.0" prefHeight="450.0" prefWidth="1142.0">
+         <children>
+            <Button fx:id="closeButton" layoutX="1066.0" layoutY="415.0" mnemonicParsing="false" onAction="#onCloseAction" text="Close" />
+            <Button fx:id="testrecord" layoutX="21.0" layoutY="22.0" mnemonicParsing="false" onAction="#testRecord" text="Record" />
+            <Button fx:id="testwrite" layoutX="114.0" layoutY="22.0" mnemonicParsing="false" onAction="#testWrite" text="Play" />
+            <Canvas fx:id="canvas1" height="120.0" layoutX="30.0" layoutY="55.0" width="600.0" />
+            <Slider fx:id="magSlider1" layoutX="216.0" layoutY="16.0" value="50.0" />
+            <Slider fx:id="positionSlider1" layoutX="114.0" layoutY="175.0" max="40000.0" prefHeight="14.0" prefWidth="260.0" />
+            <Slider fx:id="yMagSlider1" blockIncrement="1.0" layoutX="12.0" layoutY="55.0" max="400.0" orientation="VERTICAL" prefHeight="101.0" prefWidth="17.0" value="32.0" />
+            <Canvas fx:id="canvas2" height="120.0" layoutX="30.0" layoutY="254.0" width="600.0" />
+            <Slider fx:id="yMagSlider2" blockIncrement="1.0" layoutX="13.0" layoutY="264.0" max="400.0" orientation="VERTICAL" prefHeight="101.0" prefWidth="17.0" value="32.0" />
+            <Button fx:id="testrecord2" layoutX="30.0" layoutY="225.0" mnemonicParsing="false" onAction="#testRecord2" text="Record" />
+            <Button fx:id="testwrite2" layoutX="110.0" layoutY="227.0" mnemonicParsing="false" onAction="#testWrite2" text="Play" />
+            <Slider fx:id="magSlider2" layoutX="216.0" layoutY="225.0" value="50.0" />
+            <Slider fx:id="positionSlider2" layoutX="114.0" layoutY="403.0" max="40000.0" prefHeight="14.0" prefWidth="260.0" />
+            <Canvas fx:id="fftCanvas1" height="180.0" layoutX="640.0" layoutY="32.0" width="450.0" />
+            <Canvas fx:id="fftCanvas2" height="180.0" layoutX="640.0" layoutY="237.0" width="450.0" />
+            <Slider fx:id="fftSlider1" layoutX="383.0" layoutY="176.0" max="40000.0" prefHeight="14.0" prefWidth="253.0" />
+            <Slider fx:id="fftSlider2" layoutX="392.0" layoutY="403.0" max="40000.0" prefHeight="14.0" prefWidth="253.0" />
+            <RadioButton fx:id="syncFFT" layoutX="700.0" layoutY="423.0" mnemonicParsing="false" onAction="#setFFTsync" text="FFT Pos Sync 1ch" />
+            <Label layoutX="62.0" layoutY="402.0" text="pos" />
+            <Label layoutX="58.0" layoutY="174.0" text="pos" />
+            <Label layoutX="383.0" layoutY="204.0" text="FFT Pos" />
+            <Label layoutX="383.0" layoutY="419.0" text="FFT Pos" />
+            <Label layoutX="166.0" layoutY="14.0" text="MAG" />
+            <Label layoutX="166.0" layoutY="224.0" text="MAG" />
+            <RadioButton layoutX="560.0" layoutY="14.0" mnemonicParsing="false" onAction="#setFFTmag2" text="44KHz" textOverrun="CLIP">
+               <toggleGroup>
+                  <ToggleGroup fx:id="freq" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton layoutX="630.0" layoutY="13.0" mnemonicParsing="false" onAction="#setFFTmag4" selected="true" text="22KHz" toggleGroup="$freq" />
+            <RadioButton layoutX="700.0" layoutY="13.0" mnemonicParsing="false" onAction="#setFFTmag8" text="11KHz" toggleGroup="$freq" />
+            <Group id="freq" layoutX="560.0" layoutY="47.0" />
+            <Label layoutX="436.0" layoutY="13.0" text="FFT Sampling Rate" />
+            <Label layoutX="47.0" layoutY="47.0" text="Ch1" />
+            <Label layoutX="43.0" layoutY="256.0" text="Ch2" />
+            <Label fx:id="mag1" layoutX="368.0" layoutY="14.0" text="50" />
+            <Label fx:id="mag2" layoutX="360.0" layoutY="224.0" text="50" />
+            <RadioButton fx:id="realTimeFFT" layoutX="884.0" layoutY="423.0" mnemonicParsing="false" onAction="#realTimeFft" text="RealTimeFFT" />
+            <Slider fx:id="fftMagSlider1" layoutX="1107.0" layoutY="45.0" max="200.0" min="5.0" orientation="VERTICAL" value="100.0" />
+            <Slider fx:id="fftMagSlider2" layoutX="1107.0" layoutY="250.0" max="200.0" min="5.0" orientation="VERTICAL" value="100.0" />
+            <RadioButton fx:id="tfftButton1" layoutX="964.0" layoutY="13.0" mnemonicParsing="false" onAction="#tfftDraw1" text=" TFFT Draw 1" />
+            <RadioButton fx:id="tfftButton2" layoutX="964.0" layoutY="215.0" mnemonicParsing="false" onAction="#tfftDraw2" text="TFFT Draw 2" />
+            <RadioButton fx:id="realTimeWave" layoutX="169.0" layoutY="423.0" mnemonicParsing="false" onAction="#realTimeRaveRun" text="Real Time Wave" />
+            <Label fx:id="surchDataNo" layoutX="582.0" layoutY="217.0" prefHeight="17.0" prefWidth="40.0" />
+            <ComboBox fx:id="audioDeviceSelectBox" layoutX="640.0" layoutY="211.0" onAction="#changeAudioDevice" prefHeight="25.0" prefWidth="300.0" promptText="Audio Mixer" />
+         </children></Pane>
+   </children>
+</HBox>
