@@ -1,6 +1,6 @@
 # ToneCompare
 ## 音色比較ツール
-
+![ToneCompare](https://user-images.githubusercontent.com/28349102/134358630-e87653b0-3707-4601-b3bc-70a59368bde9.JPG)
 ２つの音色を波形、FFT,TFFTで比較するツールです
 Recordボタンで２秒間録音します
 FFT標示の間のプルダウンメニューで入力デバイスが指定出来ます
